@@ -1,0 +1,39 @@
+** MQTT **
+
+# start the data publisher in one terminal
+
+  python3 mqtt_publisher.py
+
+# start the data subscriber in another terminal
+
+  python3 mqtt_subscriber.py
+
+** TCP socket **
+
+# start the TCP server in one terminal
+
+  python3 tcpServer3.py
+
+# start the TCP client in one terminal, then type any string in lower case, which will be sent to the server and bounce back with upper case
+
+  python3 tcpClient3.py
+
+** UDP socket **
+
+# start the UDP server in one terminal
+
+  python3 udpServer3.py
+
+# start the UDP client in one terminal, then type any string in lower case, which will be sent to the server and bounce back with upper case
+
+  python3 udpClient3.py
+
+** TCP command (similar to ssh) **
+
+# start the TCP server in one terminal
+
+  python3 tcpCmdServer3.py
+
+# start the TCP client in one terminal, then type any linux command (such as ls, pwd, etc) and see the results from the remote command server
+
+  python3 tcpClient3.py
