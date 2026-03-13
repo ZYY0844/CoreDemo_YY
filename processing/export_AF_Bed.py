@@ -7,33 +7,9 @@ from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeout
 import urllib3
 import sys
 import time  # Imported for request throttling sleep
-
+from bed_info import *
 # Disable InsecureRequestWarning
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-# different bed and mac addresses
-bed_1_ID_30_up = {
-    "bsg_z": "cc:8d:a2:e8:d0:18",
-    "bsg_y": "cc:8d:a2:e8:ce:d8",
-    "bsg_x": "cc:8d:a2:e8:cd:f8",
-    "bed_name": "bed_1_ID_30_up",
-}
-
-bed_1_ID_30_compare = {
-    "bsg_z": "98:a3:16:cf:f4:6c",
-    "bsg_y": "cc:8d:a2:e8:ce:50",
-    "bsg_x": "cc:8d:a2:e8:cc:30",
-    "bed_name": "bed_1_ID_30_compare",
-}
-
-bed_1_ID_18_mid = {
-    "bsg_z": "cc:8d:a2:e8:d0:e8",
-    "bsg_y": "cc:8d:a2:e8:cc:38",
-    "bsg_x": "cc:8d:a2:e8:cc:78",
-    "bed_name": "bed_1_ID_18_mid",
-}
-
-# Convert a local time string into a UTC epoch timestamp
 
 
 def to_utc_epoch(time_str, tz_str="Asia/Shanghai"):
@@ -200,13 +176,13 @@ def get_bsg_3axis_readings(
 
 
 if __name__ == "__main__":
-    start_time_str = "2026-3-12T13:53:33"
+    start_time_str = "2026-3-12T13:59:33"
     end_time_str = "2026-3-12T14:01:33"
-    status = "sync2"
-    selected_bed = bed_1_ID_30_up  # Change this to select different bed/device
-    # selected_bed = bed_1_ID_30_compare
-    selected_bed = bed_1_ID_18_mid
-    output_filename = f"./data/{selected_bed['bed_name']}_{status}.npy"
+    status = "test"
+    selected_bed = bed_AF_ID_30_up  # Change this to select different bed/device
+    # selected_bed = bed_AF_ID_30_compare
+    # selected_bed = bed_AF_ID_18_mid
+    output_filename = f"./data/{selected_bed['SID']}_{status}.npy"
     # try:
     bsg_3axis = get_bsg_3axis_readings(
         bed_address_info=selected_bed,
