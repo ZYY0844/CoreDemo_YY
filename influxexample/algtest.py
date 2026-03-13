@@ -3,6 +3,9 @@
 from scipy.signal import butter, lfilter
 from scipy import signal
 from datetime import datetime, date
+import sys, os
+# join the parent directory to the path to import utils and algorithm
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from influxdb import InfluxDBClient
 import numpy
 import random
@@ -12,7 +15,7 @@ import sys, os
 import logging
 import algorithm as alg
 #from scipy import stats
-import nitime.algorithms as nt_alg
+# import nitime.algorithms as nt_alg
 import numpy as np
 from numpy import array
 import scipy as sp

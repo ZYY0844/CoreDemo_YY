@@ -1,0 +1,5 @@
+SampleRate=500
+Resolution=819
+BaseLine=0
+MaxValue=32765
+MinValue=-32767
