@@ -43,10 +43,10 @@ REMOTE_INFLUX_PORT = 8086
 DEVICE_ID_TO_FETCH = "device1"
     # start_time_str = "2026-3-16T11:00:09"
     # end_time_str = "2026-3-16T11:05:25"
-START_TIME_LOCAL = "2026-3-16 11:08:30"
-END_TIME_LOCAL = "2026-3-16 11:11:28"
-status = 'chirp_womat_'
-status = 'sub_3_d20_'
+START_TIME_LOCAL = "2026-3-16 11:11:30"
+END_TIME_LOCAL = "2026-3-16 11:14:28"
+# status = 'chirp_womat_'
+status = 'sub_3_d30_'
 LOCAL_TIMEZONE = "Asia/Shanghai"
 OUTPUT_DIR = r"./data/"
 
