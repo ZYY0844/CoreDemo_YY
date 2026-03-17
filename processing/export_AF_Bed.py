@@ -150,10 +150,10 @@ def get_bsg_3axis_readings(
         print(f"Querying InfluxDB for axis {axis_name}, device {unit}...")
         try:
             points = _query_points_with_timeout(
-                client, query, timeout_seconds=15)
+                client, query, timeout_seconds=30)
         except FutureTimeoutError:
             print(
-                f"\033[91mAxis {axis_name}: query waited more than 15s, filling this axis with zeros and continuing.\033[0m"
+                f"\033[91mAxis {axis_name}: query waited more than 30s, filling this axis with zeros and continuing.\033[0m"
             )
             axis_chunks[axis_key] = _build_zero_signal(expected_points)
             continue
@@ -176,12 +176,14 @@ def get_bsg_3axis_readings(
 
 
 if __name__ == "__main__":
-    start_time_str = "2026-3-12T13:59:40"
-    end_time_str = "2026-3-12T14:02:33"
-    status = "test1"
+    start_time_str = "2026-3-16T11:05:40"
+    end_time_str = "2026-3-16T11:09:08"
+    status = "chirp_mat_2weights_"
+    status = "sub_3_d15_"
     selected_bed = bed_AF_ID_30_up  # Change this to select different bed/device
     selected_bed = bed_AF_ID_30_compare
-    # selected_bed = bed_AF_ID_18_mid
+    selected_bed = bed_AF_ID_18_mid
+    # selected_bed = bed_AF_ID_on
     output_filename = f"./data/{selected_bed['SID']}_{status}.npy"
     # try:
     bsg_3axis = get_bsg_3axis_readings(

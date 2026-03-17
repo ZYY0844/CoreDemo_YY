@@ -13,6 +13,13 @@ bed_AF_ID_30_compare = {
     "SID": "bed_AF_ID_30_compare",
 }
 
+bed_AF_ID_on = {
+    "bsg_x": "cc:8d:a2:e8:cf:e0",
+    "bsg_y": "cc:8d:a2:e8:cf:e0",
+    "bsg_z": "cc:8d:a2:e8:cf:e0",
+    "SID": "bed_AF_ID_on",
+}
+
 bed_AF_ID_18_mid = {
     "bsg_x": "cc:8d:a2:e8:cc:78",
     "bsg_y": "cc:8d:a2:e8:cc:38",
