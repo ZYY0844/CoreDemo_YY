@@ -41,12 +41,12 @@ REMOTE_INFLUX_PORT = 8086
 
 # --- 3. 查询参数配置 ---
 DEVICE_ID_TO_FETCH = "device1"
-    # start_time_str = "2026-3-16T11:00:09"
-    # end_time_str = "2026-3-16T11:05:25"
-START_TIME_LOCAL = "2026-3-17 10:18:00"
-END_TIME_LOCAL = "2026-3-17 10:15:38"
+# start_time_str = "2026-3-16T11:00:09"
+# end_time_str = "2026-3-16T11:05:25"
+START_TIME_LOCAL = "2026-3-19 15:31:40"
+END_TIME_LOCAL = "2026-3-19 15:33:59"
 # status = 'chirp_womat_'
-status = 'sub_1_wo_bd_'
+status = 'sub_1_d30'
 LOCAL_TIMEZONE = "Asia/Shanghai"
 OUTPUT_DIR = r"./data/"
 

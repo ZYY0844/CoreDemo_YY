@@ -176,16 +176,16 @@ def get_bsg_3axis_readings(
 
 
 if __name__ == "__main__":
-    start_time_str = "2026-3-17T09:46:50"
-    end_time_str = "2026-3-17T09:51:50"
+    start_time_str = "2026-3-19T15:31:40"
+    end_time_str = "2026-3-19T15:33:59"
     # status = "chirp_mat_2weights_"
-    # status = "sub_1_PE_"
-    status = "test"
+    status = "sub_1_d30"
+    # status = "test"
     selected_bed = bed_AF_ID_30_up  # Change this to select different bed/device
     # selected_bed = bed_AF_ID_30_compare
-    # selected_bed = bed_AF_ID_18_mid
-    selected_bed = bed_15_ID_15
-    # selected_bed = bed_AF_ID_on
+    selected_bed = bed_AF_ID_18_mid
+    # selected_bed = bed_15_ID_15
+    selected_bed = bed_AF_ID_on
     output_filename = f"./data/{selected_bed['SID']}_{status}.npy"
     # try:
     bsg_3axis = get_bsg_3axis_readings(
