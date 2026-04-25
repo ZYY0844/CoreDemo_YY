@@ -114,7 +114,7 @@ def get_bsg_3axis_readings(
     if missing_keys:
         raise ValueError(
             f"bed_address_info is missing required keys: {sorted(missing_keys)}")
-
+    
     start_epoch = to_utc_epoch(start_time_str, tz_str=tz_str)
     end_epoch = to_utc_epoch(end_time_str, tz_str=tz_str)
     if end_epoch <= start_epoch:
@@ -150,10 +150,10 @@ def get_bsg_3axis_readings(
         print(f"Querying InfluxDB for axis {axis_name}, device {unit}...")
         try:
             points = _query_points_with_timeout(
-                client, query, timeout_seconds=30)
+                client, query, timeout_seconds=100)
         except FutureTimeoutError:
             print(
-                f"\033[91mAxis {axis_name}: query waited more than 30s, filling this axis with zeros and continuing.\033[0m"
+                f"\033[91mAxis {axis_name}: query waited more than 100s, filling this axis with zeros and continuing.\033[0m"
             )
             axis_chunks[axis_key] = _build_zero_signal(expected_points)
             continue
@@ -176,16 +176,20 @@ def get_bsg_3axis_readings(
 
 
 if __name__ == "__main__":
-    start_time_str = "2026-3-19T15:31:40"
-    end_time_str = "2026-3-19T15:33:59"
+    start_time_str = "2026-01-18T07:40:10"
+    end_time_str = "2026-01-18T07:50:10"
+    # start_time_str = "2026-3-30T14:12:26"
+    # end_time_str = "2026-3-30T14:24:05"
     # status = "chirp_mat_2weights_"
-    status = "sub_1_d30"
-    # status = "test"
+    status = "sub_1_tt"
+    # status = "ABP_1"
     selected_bed = bed_AF_ID_30_up  # Change this to select different bed/device
     # selected_bed = bed_AF_ID_30_compare
-    selected_bed = bed_AF_ID_18_mid
-    # selected_bed = bed_15_ID_15
-    selected_bed = bed_AF_ID_on
+    # selected_bed = bed_AF_ID_18_mid
+    selected_bed = bed_11_ID_27
+    # selected_bed = bed_AF_ID_single
+    selected_bed = bed_11_ID_27
+    # selected_bed = bed_AF_ID_on
     output_filename = f"./data/{selected_bed['SID']}_{status}.npy"
     # try:
     bsg_3axis = get_bsg_3axis_readings(
